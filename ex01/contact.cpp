@@ -39,6 +39,7 @@ void Contact::showContact(int index) {
 }
 
 void Contact::showContactDetail() {
+	std::cout << std::endl;
 	std::cout << _firstName << std::endl;
 	std::cout << _lastName << std::endl;
 	std::cout << _nickname << std::endl;

@@ -44,11 +44,12 @@ void Phonebook::search(void) {
 		std::cout << "You don't have any contact yet." << std::endl;
 		return;
 	}
-	while (i <= current) {
+	while (i < current) {
 		contacts[i].showContact(i);
 		i++;
 	}
-	std::cout << "Type a number to see Detail of a contact" << std::endl;
+	std::cout << std::endl
+			  << "Type a number to see Detail of a contact" << std::endl;
 	std::getline(std::cin, selected);
 	selectedNum = std::stoi(selected);
 	if (0 <= selectedNum && selectedNum < current)
