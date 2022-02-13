@@ -1,28 +1,21 @@
 #ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
+#define PHONEBOOK_HPP
 
-//# include "Contact.hpp"
-# include <iostream>
-# include <string>
-# include <iomanip>
+#include "contact.hpp"
 
-const int	PAGE_NUM = 8;
-const int	PAGE_LAST = 7;
-const int	START = -1;
+const int MAX_CONTACTS = 8;
 
 class Phonebook {
 private:
-//	Contact	page[PAGE_NUM];
-//	int		top;
+	Contact contacts[MAX_CONTACTS];
+	int current;
 
 public:
 	Phonebook(void);
 	~Phonebook(void);
-	std::string	readline(std::string prompt);
-//	void	interact(void);
-	void	add(void);
-	void	show(void);
-	void	search(void);
+	std::string readline(std::string prompt);
+	void add(void);
+	void search(void);
 };
 
 #endif
