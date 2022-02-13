@@ -29,7 +29,6 @@ std::string Phonebook::readline(std::string prompt) {
 }
 
 void Phonebook::add(void) {
-	std::cout << "add called" << std::endl;
 	contacts[current].fillFrom();
 	if (current < MAX_CONTACTS - 1)
 		current++;
@@ -39,7 +38,6 @@ void Phonebook::search(void) {
 	std::string selected;
 	int selectedNum;
 	int i = 0;
-	std::cout << "search called" << std::endl;
 	if (current == 0) {
 		std::cout << "You don't have any contact yet." << std::endl;
 		return;
@@ -51,7 +49,13 @@ void Phonebook::search(void) {
 	std::cout << std::endl
 			  << "Type a number to see Detail of a contact" << std::endl;
 	std::getline(std::cin, selected);
-	selectedNum = std::stoi(selected);
-	if (0 <= selectedNum && selectedNum < current)
-		contacts[selectedNum].showContactDetail();
+	std::cout << selected << std::endl;
+	try {
+		selectedNum = std::stoi(selected);
+		std::cout << selectedNum << std::endl;
+		if (0 <= selectedNum && selectedNum < current)
+			contacts[selectedNum].showContactDetail();
+	} catch (const std::exception &e) {
+		std::cerr << "Type valid number" << std::endl;
+	}
 }
